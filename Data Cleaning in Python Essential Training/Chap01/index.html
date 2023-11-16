@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!-- Bootstrap CSS -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+        <title>Hello, world!</title>
+        <style>
+            .container {
+                width: 50%;
+                margin: auto;
+                margin-top: 20px;
+            }
+            .error {
+                text-align: center;
+                font-style: italic;
+                font-size: 14px;
+                padding-left: 5px;
+                padding-right: 5px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <p class="bg-light text-center pt-2 pb-2">Donate to Scoorge McDuck</p>
+
+            <span id="error"></span>
+
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1">Name</span>
+                <input type="text" class="form-control" id="name" placeholder="Januario Cipriano" value="Januario Cipriano" aria-label="Username" aria-describedby="basic-addon1">
+            </div>
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1">Country</span>
+                <input type="text" class="form-control" id="country" placeholder="Mozambique" value="Mozambique" aria-label="Username" aria-describedby="basic-addon1">
+            </div>
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1">Card Number</span>
+                <input type="text" class="form-control" id="card-number" placeholder="1234567890123456" value="1234567890123456" aria-label="Username" aria-describedby="basic-addon1">
+            </div>
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1">Expiration(MM/YY)</span>
+                <input type="text" class="form-control" id="expiration" placeholder="24/12" value="24/12" aria-label="Username" aria-describedby="basic-addon1">
+            </div>
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1">Amount</span>
+                <input type="number" class="form-control" id="amount" placeholder="20" value="20" aria-label="Username" aria-describedby="basic-addon1">
+            </div>
+            <button class="btn btn-warning">Donate Now!</button>
+        </div>
+
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+        <script>
+            let btn = document.querySelector('.btn');
+            let name = document.querySelector('#name');
+            let country = document.querySelector('#country');
+            let card_number = document.querySelector('#card-number');
+            let expiration = document.querySelector('#expiration');
+            let amount = document.querySelector('#amount');
+            let error = document.querySelector('#error');
+
+            btn.addEventListener('click', e => {
+                // e.preventDefault();
+                data = {
+                    name: name.value, country: country.value,
+                    card_number: card_number.value, 
+                    expiration: expiration.value, amount: amount.value
+                }
+                console.log(data);
+                if (name.value === '' || country.value === '' ||
+                    card_number.value === '' || expiration.value === '' ||
+                    amount.value === '') {
+                    error.classList.add('btn-danger');
+                    error.textContent = 'Fill in all the fields.';
+                } else {
+                    error.classList.remove('btn-danger');
+                    error.textContent = '';
+
+                    fetch('')
+                }
+            });
+        </script>
+    </body>
+</html>
